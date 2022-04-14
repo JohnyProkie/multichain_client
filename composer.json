@@ -1,0 +1,21 @@
+{
+    "name": "johny-prokie/multichain-init",
+    "type": "library",
+    "license": "GPL",
+    "autoload": {
+        "psr-4": {
+            "JohnyProkie\\MultichainInit\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Jan Prokes"
+        }
+    ],
+    "require": {
+        "phpunit/phpunit": "^9.5"
+    },
+    "scripts": {
+        "test": "phpunit"
+    }
+}

@@ -1,0 +1,27 @@
+version: "3.8"
+services:
+  php:
+    image: mc-client:latest
+#    user: multichain_client
+    build:
+      context: ./
+      dockerfile: .docker/Dockerfile
+      args:
+        - MULTICHAIN_UID=${MULTICHAIN_UID:-1000}
+        - MULTICHAIN_GID=${MULTICHAIN_GID:-1000}
+    volumes:
+      - ./:/var/www
+    working_dir: /var/www
+    networks:
+      - multichain_client
+    entrypoint: tail -f /dev/null
+
+  multichain:
+    image: ubloquity/docker-multichain:master-enterprise-demo-v2.1.2
+    networks:
+      - multichain_client
+    entrypoint: tail -f /dev/null
+
+networks:
+  multichain_client:
+    driver: bridge
