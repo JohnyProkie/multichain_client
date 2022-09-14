@@ -9,10 +9,4 @@ class ClientTest extends TestCase
     {
         self::assertTrue(false, 'ouch');
     }
-
-    public function testSleep()
-    {
-        sleep(10);
-        self::assertTrue(true);
-    }
 }

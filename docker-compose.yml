@@ -1,23 +1,16 @@
 version: "3.8"
 services:
   php:
-    image: mc-client:latest
+    image: composer:2.4.1
 #    user: multichain_client
-    build:
-      context: ./
-      dockerfile: .docker/Dockerfile
-      args:
-        - MULTICHAIN_UID=${MULTICHAIN_UID:-1000}
-        - MULTICHAIN_GID=${MULTICHAIN_GID:-1000}
     volumes:
-      - ./:/var/www
-    working_dir: /var/www
+      - ./:/app
     networks:
       - multichain_client
     entrypoint: tail -f /dev/null
 
   multichain:
-    image: ubloquity/docker-multichain:master-enterprise-demo-v2.1.2
+    image: kunstmaan/master-multichain:latest
     networks:
       - multichain_client
     entrypoint: tail -f /dev/null
