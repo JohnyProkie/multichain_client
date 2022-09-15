@@ -4,9 +4,8 @@ declare(strict_types=1);
 namespace JohnyProkie\MultichainClient\Commands;
 
 use JohnyProkie\MultichainClient\Contracts\CommandContract;
-use JohnyProkie\MultichainClient\Enums\Boolean;
+use JohnyProkie\MultichainClient\Enums\StringifiedBoolean;
 use JohnyProkie\MultichainClient\ValueObjects\Key;
-use JohnyProkie\MultichainClient\ValueObjects\Keys;
 
 class ListStreamKeyItems implements CommandContract
 {
@@ -79,10 +78,11 @@ class ListStreamKeyItems implements CommandContract
     {
         return [
             $this->stream,
-            $this->verbose ? Boolean::TRUE : Boolean::FALSE,
+            $this->key,
+            $this->verbose ? StringifiedBoolean::TRUE : StringifiedBoolean::FALSE,
             (string) $this->getCount(),
             (string) $this->start,
-            $this->localOrdering ? Boolean::TRUE : Boolean::FALSE,
+            $this->localOrdering ? StringifiedBoolean::TRUE : StringifiedBoolean::FALSE,
         ];
     }
 }

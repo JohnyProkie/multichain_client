@@ -4,8 +4,9 @@ declare(strict_types=1);
 namespace ValueObjects;
 
 use JohnyProkie\MultichainClient\ValueObjects\Keys;
+use PHPUnit\Framework\TestCase;
 
-class KeysTest extends \PHPUnit\Framework\TestCase
+class KeysTest extends TestCase
 {
     /**
      * @dataProvider validProvider
